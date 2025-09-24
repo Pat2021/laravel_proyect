@@ -22,8 +22,8 @@
     {{-- Post content --}}
     <div class="mb-4">
         <label for="body">Post Content</label>
-        <textarea name="body" rows="5" class="input @error('body') ring-red-500 @enderror">{{ old('body', $post->body) }}</textarea>
-        @error('body')
+        <textarea name="content" rows="5" class="input @error('content') ring-red-500 @enderror">{{ old('content', $post->content) }}</textarea>
+        @error('content')
             <p class="error"> {{ $message }}</p>
         @enderror
     </div>

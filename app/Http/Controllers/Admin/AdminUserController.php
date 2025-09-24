@@ -45,13 +45,13 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
            // 'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|in:admin,user',
+            'role' => 'required|in:user,admin',
             'avatar' => 'nullable|image|max:2048', // Optional profile photo
         ]);
-        $data = $request->only(['name', 'email', 'role']);
+        $data = $request->only(['username', 'email', 'role']);
         $data['password'] = bcrypt($request->password); // Hash the password
         // Handle avatar upload
         if ($request->hasFile('avatar')) {
@@ -85,12 +85,12 @@ class AdminUserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'role' => 'required|in:admin,user',
+            'role' => 'required|in:user,admin',
             'avatar' => 'nullable|image|max:2048', // Optional profile photo
         ]);
-        $data = $request->only(['name', 'email', 'role']);
+        $data = $request->only(['username', 'email', 'role']);
         // Handle avatar upload
         if ($request->hasFile('avatar')) {
             // Delete old avatar if exists

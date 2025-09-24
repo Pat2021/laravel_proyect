@@ -51,11 +51,11 @@
                                 <p class="text-xs text-gray-500">{{ auth()->user()->email }}</p>
                             </div>
 
-                            @if (auth()->user()->role === 'admin')
-                                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">
-                                    Admin Panel
-                                </a>
-                            @endif
+                        @if (auth()->user()->role==='admin')
+                            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">
+                                Admin Panel
+                            </a>
+                        @endif
 
                             <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">
                                 Edit Profile

@@ -43,8 +43,8 @@ class AdminPostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'user_id' => 'required|exists:users,id',
             'image' => 'nullable|image|max:3000', // Optional image
+            'user_id' => 'required|exists:users,id',
         ]);
     // Update imagen if exists  
         $path = $post->image ?? null;
